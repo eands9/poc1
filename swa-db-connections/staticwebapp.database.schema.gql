@@ -1,0 +1,7 @@
+type Update @model {
+  id: String
+  email: String
+  bdate: String
+  zip: String
+  status: String
+}

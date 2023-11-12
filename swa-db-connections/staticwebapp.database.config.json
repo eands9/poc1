@@ -1,0 +1,60 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.8.52/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "cosmosdb_nosql",
+    "connection-string": "AccountEndpoint=https://sande-cosmosdb.documents.azure.com:443/;AccountKey=pEWwOOiB4cPgFMaNm2wBKH6u79L4ELihkKDtR9AkZR3CYVTxDCcB0cdmaMdH2VeuDb40cLEffRNzACDbzy94Tg==;",
+    "options": {
+      "database": "VolunteerUpdates",
+      "container": null,
+      "schema": "staticwebapp.database.schema.gql"
+    }
+  },
+  "runtime": {
+    "rest": {
+      "enabled": false,
+      "path": "/api"
+    },
+    "graphql": {
+      "enabled": true,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "host": {
+      "cors": {
+        "origins": [],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      },
+      "mode": "development"
+    }
+  },
+  "entities": {
+    "Update": {
+      "source": {
+        "object": "updates"
+      },
+      "graphql": {
+        "enabled": true,
+        "type": {
+          "singular": "Update",
+          "plural": "Updates"
+        }
+      },
+      "rest": {
+        "enabled": false
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            {
+              "action": "*"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
