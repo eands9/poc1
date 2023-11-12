@@ -1,23 +1,24 @@
 <template>
-  <v-app>
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+<div>Test</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+    data(){
+        return{
+            students: []
+        }
+    },
+    mounted(){
+        this.getUpdates()
+    },
+    methods:{
+        async getUpdates(){
+          const endpoint='/data-api/graphql/Update'
+          const response = await fetch(endpoint)
+          const data = await response.json()
+          console.table(data.value)
+        }
+    }
 }
 </script>
