@@ -17,7 +17,7 @@ export default {
           const endpoint='/data-api/graphql/Update'
           const response = await fetch(endpoint)
           const data = await response.json()
-          console.table(data.value)
+          console.log(data)
         }
     }
 }
