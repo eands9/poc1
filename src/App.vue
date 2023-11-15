@@ -1,47 +1,19 @@
+<script setup>
+import VolunteerStatus from "./components/VolunteerStatus.vue"
+
+</script>
+
 <template>
-  <div>Test</div>
+  <VApp>
+    <v-app-bar
+      color="primary"
+    >
+      <v-app-bar-title>BBBS Volunteer Status Check</v-app-bar-title>
+
+    </v-app-bar>
+    <VMain>
+      <volunteer-status />
+    </VMain>
+  </VApp>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      students: [],
-    };
-  },
-  mounted() {
-    this.getUpdates();
-  },
-  methods: {
-    async getUpdates() {
-      // const endpoint='/data-api/graphql/Update'
-      // const response = await fetch(endpoint)
-      // const data = await response.json()
-      // console.log(data)
-
-      const query = `
-      {
-          updates {
-          items{
-            email,
-            bdate,
-            zip,
-            status
-          },
-        endCursor,
-        hasNextPage
-        }
-      }`;
-
-      const endpoint = "/data-api/graphql";
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: query }),
-      });
-      const result = await response.json();
-      console.table(result.data.updates.items);
-    },
-  },
-};
-</script>

@@ -3,5 +3,5 @@ type Update @model {
   email: String
   bdate: String
   zip: String
-  status: String
+  volunteerStatus: String
 }
