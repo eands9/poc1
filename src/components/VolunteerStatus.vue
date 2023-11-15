@@ -123,7 +123,7 @@ function processNewData(items){
       <v-text-field
         v-model="state.bdate"
         :error-messages="v$.bdate.$errors.map((e) => e.$message)"
-        label="Enter Birthdate"
+        label="Enter Birthdate (MMDDYY)"
         variant="outlined"
         required
         @input="v$.bdate.$touch"
