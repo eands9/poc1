@@ -91,7 +91,7 @@ function processNewData(items){
   } else if(filteredItem.length > 0 && !state.volunteerStatus) {
     state.msg = "There's no update yet..."
   } else {
-    state.msg = "Your update is: " + state.volunteerStatus
+    state.msg = "Your status is: " + state.volunteerStatus
   }
   
   state.showProgress = false
