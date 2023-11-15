@@ -76,7 +76,7 @@ async function getData(){
 function processNewData(items){
   const volunteerData = items.data.updates.items
 
-  const filteredItem = volunteerData.filter(item => item.email === state.email && item.zip === state.zip && item.bdate === state.bdate)
+  const filteredItem = volunteerData.filter(item => item.email.toLowerCase() === state.email.toLowerCase() && item.zip === state.zip && item.bdate === state.bdate)
   // console.log(filteredItem)
   state.showMsg = true
 
